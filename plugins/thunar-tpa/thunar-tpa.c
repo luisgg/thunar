@@ -508,21 +508,26 @@ thunar_tpa_display_trash (ThunarTpa *plugin)
   gchar *startup_id;
 
   g_return_if_fail (THUNAR_IS_TPA (plugin));
+  gchar *cmd = g_strconcat("exo-open --launch FileManager trash:///", NULL);
+  xfce_spawn_command_line_on_screen(gdk_screen_get_default(), cmd, FALSE, TRUE, NULL);
+  g_free(cmd);
 
-  /* check if we are connected to the bus */
+  /* check if we are connected to the bus 
   if (G_LIKELY (plugin->proxy != NULL))
     {
-      /* cancel any pending call */
+      /* cancel any pending call 
       if (G_UNLIKELY (plugin->display_trash_call != NULL))
         dbus_g_proxy_cancel_call (plugin->proxy, plugin->display_trash_call);
 
-      /* schedule a new call */
+      /* schedule a new call 
       display_name = gdk_screen_make_display_name (gtk_widget_get_screen (GTK_WIDGET (plugin)));
       startup_id = g_strdup_printf ("_TIME%d", gtk_get_current_event_time ());
       plugin->display_trash_call = org_xfce_Trash_display_trash_async (plugin->proxy, display_name, startup_id, thunar_tpa_display_trash_reply, plugin);
       g_free (startup_id);
       g_free (display_name);
     }
+*/
+
 }
 
 
