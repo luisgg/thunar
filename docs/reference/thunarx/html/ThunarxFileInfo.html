@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ThunarxFileInfo</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Thunar Extensions Reference Manual">
+<link rel="up" href="thunarx-abstraction-layer.html" title="Part IV. Abstraction Layer">
+<link rel="prev" href="thunarx-abstraction-layer.html" title="Part IV. Abstraction Layer">
+<link rel="next" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="thunarx-abstraction-layer.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="thunarx-abstraction-layer.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Thunar Extensions Reference Manual</th>
+<td><a accesskey="n" href="ThunarxPropertyPage.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ThunarxFileInfo.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ThunarxFileInfo.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ThunarxFileInfo.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ThunarxFileInfo.prerequisites" class="shortcut">Prerequisites</a>
+                   | 
+                  <a href="#ThunarxFileInfo.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ThunarxFileInfo"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ThunarxFileInfo.top_of_page"></a>ThunarxFileInfo</span></h2>
+<p>ThunarxFileInfo — Abstraction of a file handled within the file manager</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.stability-level"></a><h2>Stability Level</h2>
+Stable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="ThunarxFileInfo.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;thunarx/thunarx.h&gt;
+
+struct              <a class="link" href="ThunarxFileInfo.html#ThunarxFileInfoIface" title="struct ThunarxFileInfoIface">ThunarxFileInfoIface</a>;
+                    <a class="link" href="ThunarxFileInfo.html#ThunarxFileInfo-struct" title="ThunarxFileInfo">ThunarxFileInfo</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-name" title="thunarx_file_info_get_name ()">thunarx_file_info_get_name</a>          (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-uri" title="thunarx_file_info_get_uri ()">thunarx_file_info_get_uri</a>           (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-parent-uri" title="thunarx_file_info_get_parent_uri ()">thunarx_file_info_get_parent_uri</a>    (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-uri-scheme" title="thunarx_file_info_get_uri_scheme ()">thunarx_file_info_get_uri_scheme</a>    (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-mime-type" title="thunarx_file_info_get_mime_type ()">thunarx_file_info_get_mime_type</a>     (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-has-mime-type" title="thunarx_file_info_has_mime_type ()">thunarx_file_info_has_mime_type</a>     (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-is-directory" title="thunarx_file_info_is_directory ()">thunarx_file_info_is_directory</a>      (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="returnvalue">GFileInfo</span></a> *         <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-file-info" title="thunarx_file_info_get_file_info ()">thunarx_file_info_get_file_info</a>     (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="returnvalue">GFileInfo</span></a> *         <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-filesystem-info" title="thunarx_file_info_get_filesystem_info ()">thunarx_file_info_get_filesystem_info</a>
+                                                        (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-location" title="thunarx_file_info_get_location ()">thunarx_file_info_get_location</a>      (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-changed" title="thunarx_file_info_changed ()">thunarx_file_info_changed</a>           (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-renamed" title="thunarx_file_info_renamed ()">thunarx_file_info_renamed</a>           (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);
+#define             <a class="link" href="ThunarxFileInfo.html#THUNARX-TYPE-FILE-INFO-LIST:CAPS" title="THUNARX_TYPE_FILE_INFO_LIST">THUNARX_TYPE_FILE_INFO_LIST</a>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-list-copy" title="thunarx_file_info_list_copy ()">thunarx_file_info_list_copy</a>         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *file_infos</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-list-free" title="thunarx_file_info_list_free ()">thunarx_file_info_list_free</a>         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *file_infos</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----ThunarxFileInfo
+</pre>
+</div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+ThunarxFileInfo requires
+ <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+</div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="ThunarxFileInfo.html#ThunarxFileInfo-changed" title='The "changed" signal'>changed</a>"                                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+  "<a class="link" href="ThunarxFileInfo.html#ThunarxFileInfo-renamed" title='The "renamed" signal'>renamed</a>"                                        : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.description"></a><h2>Description</h2>
+<p>
+  The <span class="interface">ThunarxFileInfo</span> interface provides extensions with
+  a way to access information about a file handled within the file manager.
+</p>
+</div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ThunarxFileInfoIface"></a><h3>struct ThunarxFileInfoIface</h3>
+<pre class="programlisting">struct ThunarxFileInfoIface {
+  /* virtual methods */
+  gchar     *(*get_name)            (ThunarxFileInfo *file_info);
+
+  gchar     *(*get_uri)             (ThunarxFileInfo *file_info);
+  gchar     *(*get_parent_uri)      (ThunarxFileInfo *file_info);
+  gchar     *(*get_uri_scheme)      (ThunarxFileInfo *file_info);
+
+  gchar     *(*get_mime_type)       (ThunarxFileInfo *file_info);
+  gboolean   (*has_mime_type)       (ThunarxFileInfo *file_info,
+                                     const gchar     *mime_type);
+
+  gboolean   (*is_directory)        (ThunarxFileInfo *file_info);
+
+  GFileInfo *(*get_file_info)       (ThunarxFileInfo *file_info);
+  GFileInfo *(*get_filesystem_info) (ThunarxFileInfo *file_info);
+  GFile     *(*get_location)        (ThunarxFileInfo *file_info);
+
+
+  /* signals */
+  void (*changed) (ThunarxFileInfo *file_info);
+  void (*renamed) (ThunarxFileInfo *file_info);
+};
+</pre>
+<p>
+  Interface with virtual methods implemented by the file manager and accessible
+  from the extensions.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-name"></a>get_name</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-name" title="thunarx_file_info_get_name ()"><code class="function">thunarx_file_info_get_name()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-uri"></a>get_uri</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-uri" title="thunarx_file_info_get_uri ()"><code class="function">thunarx_file_info_get_uri()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-parent-uri"></a>get_parent_uri</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-parent-uri" title="thunarx_file_info_get_parent_uri ()"><code class="function">thunarx_file_info_get_parent_uri()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-uri-scheme"></a>get_uri_scheme</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-uri-scheme" title="thunarx_file_info_get_uri_scheme ()"><code class="function">thunarx_file_info_get_uri_scheme()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-mime-type"></a>get_mime_type</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-mime-type" title="thunarx_file_info_get_mime_type ()"><code class="function">thunarx_file_info_get_mime_type()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.has-mime-type"></a>has_mime_type</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-has-mime-type" title="thunarx_file_info_has_mime_type ()"><code class="function">thunarx_file_info_has_mime_type()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.is-directory"></a>is_directory</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-is-directory" title="thunarx_file_info_is_directory ()"><code class="function">thunarx_file_info_is_directory()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-file-info"></a>get_file_info</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-file-info" title="thunarx_file_info_get_file_info ()"><code class="function">thunarx_file_info_get_file_info()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-filesystem-info"></a>get_filesystem_info</code></em> ()</span></p></td>
+<td>See <code class="function">thunarx_filesystem_info_get_filesystem_info()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.get-location"></a>get_location</code></em> ()</span></p></td>
+<td>See <code class="function">thunarx_location_get_location()</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.changed"></a>changed</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-changed" title="thunarx_file_info_changed ()"><code class="function">thunarx_file_info_changed()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxFileInfoIface.renamed"></a>renamed</code></em> ()</span></p></td>
+<td>See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-renamed" title="thunarx_file_info_renamed ()"><code class="function">thunarx_file_info_renamed()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ThunarxFileInfo-struct"></a><h3>ThunarxFileInfo</h3>
+<pre class="programlisting">typedef struct _ThunarxFileInfo ThunarxFileInfo;</pre>
+<p>
+	File info type, which is mapped to the real file info implementation
+	within the file manager.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-name"></a><h3>thunarx_file_info_get_name ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             thunarx_file_info_get_name          (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the real name of the file represented
+by <em class="parameter"><code>file_info</code></em> in the local file system encoding.
+You can use <a href="http://library.gnome.org/devel/glib/unstable/glib-Character-Set-Conversion.html#g-filename-display-name"><code class="function">g_filename_display_name()</code></a> or similar
+functions to generate an UTF-8 version of the
+name, which is suitable for use in the user
+interface.
+</p>
+<p>
+The caller is responsible to free the returned
+string using <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the real name of the file represented
+by <em class="parameter"><code>file_info</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-uri"></a><h3>thunarx_file_info_get_uri ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             thunarx_file_info_get_uri           (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the escaped, fully qualified URI
+of the file object represented by <em class="parameter"><code>file_info</code></em>.
+You may use <a href="http://library.gnome.org/devel/glib/unstable/glib-URI-Functions.html#g-filename-from-uri"><code class="function">g_filename_from_uri()</code></a> and similar
+functions to work with the returned URI.
+</p>
+<p>
+The caller is responsible to free the returned
+string using <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the fully qualified URI of <em class="parameter"><code>file_info</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-parent-uri"></a><h3>thunarx_file_info_get_parent_uri ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             thunarx_file_info_get_parent_uri    (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the URI to the parent file of
+<em class="parameter"><code>file_info</code></em> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>file_info</code></em> has
+no parent. Note that the parent URI
+may be of a different type than the
+URI of <em class="parameter"><code>file_info</code></em>. For example, the
+parent of "file:///" is "computer:///".
+</p>
+<p>
+The caller is responsible to free the
+returned string using <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when no
+longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the parent URI for <em class="parameter"><code>file_info</code></em>
+or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-uri-scheme"></a><h3>thunarx_file_info_get_uri_scheme ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             thunarx_file_info_get_uri_scheme    (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the URI scheme of the file represented
+by <em class="parameter"><code>file_info</code></em>. E.g. if <em class="parameter"><code>file_info</code></em> refers to the
+file "file:///usr/home", the return value will
+be "file".
+</p>
+<p>
+The caller is responsible to free the returned
+string using <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the URI scheme for <em class="parameter"><code>file_info</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-mime-type"></a><h3>thunarx_file_info_get_mime_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             thunarx_file_info_get_mime_type     (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the MIME-type of the file represented by
+<em class="parameter"><code>file_info</code></em> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no MIME-type is known for
+<em class="parameter"><code>file_info</code></em>.
+</p>
+<p>
+The caller is responsible to free the returned
+string using <a href="http://library.gnome.org/devel/glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the MIME-type for <em class="parameter"><code>file_info</code></em> or
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-has-mime-type"></a><h3>thunarx_file_info_has_mime_type ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            thunarx_file_info_has_mime_type     (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *mime_type</code></em>);</pre>
+<p>
+Checks whether <em class="parameter"><code>file_info</code></em> is of the given <em class="parameter"><code>mime_type</code></em>
+or whether the MIME-type of <em class="parameter"><code>file_info</code></em> is a subclass
+of <em class="parameter"><code>mime_type</code></em>.
+</p>
+<p>
+This is the preferred way for most extensions to check
+whether they support a given file or not, and you should
+consider using this method rather than
+<a class="link" href="ThunarxFileInfo.html#thunarx-file-info-get-mime-type" title="thunarx_file_info_get_mime_type ()"><code class="function">thunarx_file_info_get_mime_type()</code></a>. A simple example would
+be a menu extension that performs a certain action on
+text files. In this case you want to check whether a given
+<a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> refers to any kind of text file, not only
+to "text/plain" (e.g. this also includes "text/xml" and
+"application/x-desktop").
+</p>
+<p>
+But you should be aware that this method may take some
+time to test whether <em class="parameter"><code>mime_type</code></em> is valid for <em class="parameter"><code>file_info</code></em>,
+so don't call it too often.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>a MIME-type (e.g. "text/plain").</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>mime_type</code></em> is valid for <em class="parameter"><code>file_info</code></em>,
+else <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-is-directory"></a><h3>thunarx_file_info_is_directory ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            thunarx_file_info_is_directory      (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Checks whether <em class="parameter"><code>file_info</code></em> refers to a directory.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>file_info</code></em> is a directory.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-file-info"></a><h3>thunarx_file_info_get_file_info ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="returnvalue">GFileInfo</span></a> *         thunarx_file_info_get_file_info     (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the <a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> associated with <em class="parameter"><code>file_info</code></em>,
+which includes additional information about the <em class="parameter"><code>file_info</code></em>
+as queried from GIO earlier. The caller is responsible to free the 
+returned <a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> object using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> when 
+no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> object associated with <em class="parameter"><code>file_info</code></em>,
+which MUST be freed using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-filesystem-info"></a><h3>thunarx_file_info_get_filesystem_info ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="returnvalue">GFileInfo</span></a> *         thunarx_file_info_get_filesystem_info
+                                                        (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the <a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> which includes additional information about
+the filesystem <em class="parameter"><code>file_info</code></em> resides on. The caller is responsible to 
+free the returned <a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> object using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a> when 
+no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> containing information about the
+filesystem of <em class="parameter"><code>file_info</code></em> or <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if no filesystem
+information is available. It MUST be released using
+<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-get-location"></a><h3>thunarx_file_info_get_location ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="returnvalue">GFile</span></a> *             thunarx_file_info_get_location      (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Returns the <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> <em class="parameter"><code>file_info</code></em> points to. The <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> is a more
+powerful tool than just the URI or the path. The caller
+is responsible to release the returned <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>
+when no longer needed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a href="http://library.gnome.org/devel/gio/unstable/GFile.html"><span class="type">GFile</span></a> to which <em class="parameter"><code>file_info</code></em> points. It MUST be
+released using <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-changed"></a><h3>thunarx_file_info_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                thunarx_file_info_changed           (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Emits the ::changed signal on <em class="parameter"><code>file_info</code></em>. This method should not
+be invoked by Thunar plugins, instead the file manager itself
+will use this method to emit ::changed whenever it notices a
+change on <em class="parameter"><code>file_info</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-renamed"></a><h3>thunarx_file_info_renamed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                thunarx_file_info_renamed           (<em class="parameter"><code><a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info</code></em>);</pre>
+<p>
+Emits the ::renamed signal on <em class="parameter"><code>file_info</code></em>. This method should
+not be invoked by Thunar plugins, instead the file manager
+will emit this signal whenever the user renamed the <em class="parameter"><code>file_info</code></em>.
+</p>
+<p>
+The plugins should instead connect to the ::renamed signal
+and update it's internal state and it's user interface
+after the file manager renamed a file.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="THUNARX-TYPE-FILE-INFO-LIST:CAPS"></a><h3>THUNARX_TYPE_FILE_INFO_LIST</h3>
+<pre class="programlisting">#define THUNARX_TYPE_FILE_INFO_LIST (thunarx_file_info_list_get_type ())
+</pre>
+<p>
+  The <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a boxed type holding a <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>s.
+  See <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-list-copy" title="thunarx_file_info_list_copy ()"><code class="function">thunarx_file_info_list_copy()</code></a> and <a class="link" href="ThunarxFileInfo.html#thunarx-file-info-list-free" title="thunarx_file_info_list_free ()"><code class="function">thunarx_file_info_list_free()</code></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-list-copy"></a><h3>thunarx_file_info_list_copy ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             thunarx_file_info_list_copy         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *file_infos</code></em>);</pre>
+<p>
+Does a deep copy of <em class="parameter"><code>file_infos</code></em> and returns the
+new list.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_infos</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>s.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a copy of <em class="parameter"><code>file_infos</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-file-info-list-free"></a><h3>thunarx_file_info_list_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                thunarx_file_info_list_free         (<em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *file_infos</code></em>);</pre>
+<p>
+Frees the resources allocated for the <em class="parameter"><code>file_infos</code></em>
+list and decreases the reference count on the
+<a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>s contained within.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>file_infos</code></em> :</span></p></td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>s.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ThunarxFileInfo.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ThunarxFileInfo-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+Emitted whenever the system notices a change to <em class="parameter"><code>file_info</code></em>.
+</p>
+<p>
+Thunar plugins should use this signal to stay informed about
+changes to a <em class="parameter"><code>file_info</code></em> for which they currently display
+information (i.e. in a <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a>), and update
+it's user interface whenever a change is noticed on <em class="parameter"><code>file_info</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ThunarxFileInfo-renamed"></a><h3>The <code class="literal">"renamed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> *file_info,
+                                                        <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)      : <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS"><code class="literal">Run First</code></a></pre>
+<p>
+Emitted when the <em class="parameter"><code>file_info</code></em> is renamed to another
+name.
+</p>
+<p>
+For example, within Thunar, <span class="type">ThunarFolder</span> uses this
+signal to reregister it's VFS directory monitor, after
+the corresponding file was renamed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

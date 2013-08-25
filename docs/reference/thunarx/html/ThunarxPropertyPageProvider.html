@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ThunarxPropertyPageProvider</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Thunar Extensions Reference Manual">
+<link rel="up" href="thunarx-providers.html" title="Part V. Providers">
+<link rel="prev" href="ThunarxMenuProvider.html" title="ThunarxMenuProvider">
+<link rel="next" href="ThunarxPreferencesProvider.html" title="ThunarxPreferencesProvider">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ThunarxMenuProvider.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="thunarx-providers.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Thunar Extensions Reference Manual</th>
+<td><a accesskey="n" href="ThunarxPreferencesProvider.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#ThunarxPropertyPageProvider.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#ThunarxPropertyPageProvider.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#ThunarxPropertyPageProvider.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#ThunarxPropertyPageProvider.prerequisites" class="shortcut">Prerequisites</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ThunarxPropertyPageProvider"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ThunarxPropertyPageProvider.top_of_page"></a>ThunarxPropertyPageProvider</span></h2>
+<p>ThunarxPropertyPageProvider — The interface to extensions that provide additional property pages</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="ThunarxPropertyPageProvider.stability-level"></a><h2>Stability Level</h2>
+Stable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="ThunarxPropertyPageProvider.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;thunarx/thunarx.h&gt;
+
+                    <a class="link" href="ThunarxPropertyPageProvider.html#ThunarxPropertyPageProvider-struct" title="ThunarxPropertyPageProvider">ThunarxPropertyPageProvider</a>;
+struct              <a class="link" href="ThunarxPropertyPageProvider.html#ThunarxPropertyPageProviderIface" title="struct ThunarxPropertyPageProviderIface">ThunarxPropertyPageProviderIface</a>;
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             <a class="link" href="ThunarxPropertyPageProvider.html#thunarx-property-page-provider-get-pages" title="thunarx_property_page_provider_get_pages ()">thunarx_property_page_provider_get_pages</a>
+                                                        (<em class="parameter"><code><a class="link" href="ThunarxPropertyPageProvider.html" title="ThunarxPropertyPageProvider"><span class="type">ThunarxPropertyPageProvider</span></a> *provider</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *files</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ThunarxPropertyPageProvider.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----ThunarxPropertyPageProvider
+</pre>
+</div>
+<div class="refsect1">
+<a name="ThunarxPropertyPageProvider.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+ThunarxPropertyPageProvider requires
+ <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+</div>
+<div class="refsect1">
+<a name="ThunarxPropertyPageProvider.description"></a><h2>Description</h2>
+<p>
+  To add a property page to the file properties dialog, extensions must implement the
+  <span class="type">ThunarxPropertyPageProvider</span> interface. This interface has only one virtual
+  method, <code class="function">get_pages</code>, that is passed a list of <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> objects and returns a list
+  of <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a> objects.
+</p>
+</div>
+<div class="refsect1">
+<a name="ThunarxPropertyPageProvider.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ThunarxPropertyPageProvider-struct"></a><h3>ThunarxPropertyPageProvider</h3>
+<pre class="programlisting">typedef struct _ThunarxPropertyPageProvider ThunarxPropertyPageProvider;</pre>
+<p>
+  Property page provider type.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ThunarxPropertyPageProviderIface"></a><h3>struct ThunarxPropertyPageProviderIface</h3>
+<pre class="programlisting">struct ThunarxPropertyPageProviderIface {
+  GList *(*get_pages) (ThunarxPropertyPageProvider *provider,
+                       GList                       *files);
+};
+</pre>
+<p>
+  Interface with virtual methods implemented by extensions that provide
+  additional pages for the file properties dialog.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="structfield"><code><a name="ThunarxPropertyPageProviderIface.get-pages"></a>get_pages</code></em> ()</span></p></td>
+<td>see <a class="link" href="ThunarxPropertyPageProvider.html#thunarx-property-page-provider-get-pages" title="thunarx_property_page_provider_get_pages ()"><code class="function">thunarx_property_page_provider_get_pages()</code></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="thunarx-property-page-provider-get-pages"></a><h3>thunarx_property_page_provider_get_pages ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *             thunarx_property_page_provider_get_pages
+                                                        (<em class="parameter"><code><a class="link" href="ThunarxPropertyPageProvider.html" title="ThunarxPropertyPageProvider"><span class="type">ThunarxPropertyPageProvider</span></a> *provider</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *files</code></em>);</pre>
+<p>
+Returns the list of <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a>s that <em class="parameter"><code>provider</code></em> has to offer for <em class="parameter"><code>files</code></em>.
+</p>
+<p>
+Extensions that implement this interface, must first check whether they support all the
+<a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>s in the list of <em class="parameter"><code>files</code></em>. Most extensions will probably only support
+<a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a>s for exactly one file of a certain type. For example an MP3-Tag
+editor property page will most probably support only a single audio file, and so the method
+would be implemented like this
+</p>
+<div class="informalexample"><pre class="programlisting">
+GList*
+tag_provider_get_pages (ThunarxPropertyPageProvider *property_page_provider,
+                        GList                       *files)
+{
+  if (g_list_length (files) != 1)
+    return NULL;
+  else if (!thunarx_file_info_has_mime_type (files-&gt;data, "audio/mp3"))
+    return NULL;
+  else
+    return g_list_append (NULL, tag_page_new (files-&gt;data));
+}
+</pre></div>
+<p>
+where <code class="function">tag_page_new()</code> allocates a new <span class="type">TagPage</span> instance for a <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a> object
+passed to it. See the description of the <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a> class for additional
+information about the <span class="type">TagPage</span> example class.
+</p>
+<p>
+As a special note, this method automatically takes a reference on the
+<em class="parameter"><code>provider</code></em> for every <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a> object returned from the real implementation
+of this method in <em class="parameter"><code>provider</code></em>. This is to make sure that the extension stays
+in memory for atleast the time that the pages are used. If the extension
+wants to stay in memory for a longer time, it'll need to take care of this
+itself (e.g. by taking an additional reference on the <em class="parameter"><code>provider</code></em> itself,
+that's released at a later time).
+</p>
+<p>
+The caller is responsible to free the returned list of pages using
+something like this when no longer needed:
+</p>
+<div class="informalexample"><pre class="programlisting">
+g_list_foreach (list, (GFunc) g_object_ref_sink, NULL);
+g_list_free_full (list, g_object_unref);
+</pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>provider</code></em> :</span></p></td>
+<td>a <a class="link" href="ThunarxPropertyPageProvider.html" title="ThunarxPropertyPageProvider"><span class="type">ThunarxPropertyPageProvider</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>files</code></em> :</span></p></td>
+<td>the list of <a class="link" href="ThunarxFileInfo.html" title="ThunarxFileInfo"><span class="type">ThunarxFileInfo</span></a>s for which a properties dialog will be displayed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the list of <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a>s that <em class="parameter"><code>provider</code></em> has to offer
+for <em class="parameter"><code>files</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ThunarxPropertyPageProvider.see-also"></a><h2>See Also</h2>
+<p>
+  The description of the <a class="link" href="ThunarxPropertyPage.html" title="ThunarxPropertyPage"><span class="type">ThunarxPropertyPage</span></a> class.
+</p>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>
