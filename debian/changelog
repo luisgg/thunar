@@ -1,3 +1,10 @@
+thunar (1.6.3-0ubuntu1~ppa0.12.04.1+aurex1) precise; urgency=low
+
+  * Added patch to use 'exo-open --launch FileManager' in thunar-tpa
+    plugin to enable use of alternative file managers
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 26 Aug 2013 01:30:09 +0200
+
 thunar (1.6.3-0ubuntu1~ppa0.12.04.1) precise; urgency=low
 
   * New upstream release.
